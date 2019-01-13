@@ -44,17 +44,17 @@ class App extends Component {
 
     if (this.state.isLoading) {
       return (
-        <div>Is loading</div>
+        <div className="loading">
+          <img src="https://cdn.dribbble.com/users/322079/screenshots/2283882/no-halftime-loaders-petrick.gif" />
+        </div>
       )
     }
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <ul>
-            {this.state.games.map(game => <li key={game.home + game.away}>Home team: {game.home} | Odds: {game.homeOdds} | Win%: {game.hometeamWinPercentage} vs {game.away} | {game.awayOdds} | Win%: {game.awayteamWinPercentage} </li>)}
-          </ul>
-        </header>
+      <div>
+        <ul className="gameList">
+          {this.state.games.map(game => <li key={game.home + game.away} className="gameListItem">Home team: {game.home} | Odds: {game.homeOdds} | Win%: {game.hometeamWinPercentage} vs {game.away} | {game.awayOdds} | Win%: {game.awayteamWinPercentage} </li>)}
+        </ul>
       </div>
     );
   }
