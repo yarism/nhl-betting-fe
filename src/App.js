@@ -53,7 +53,7 @@ class App extends Component {
     return (
       <div>
         <ul className="gameList">
-          {this.state.games.map(game => <li key={game.home + game.away} className="gameListItem">Home team: {game.home} | Odds: {game.homeOdds} | Win%: {game.hometeamWinPercentage} vs {game.away} | {game.awayOdds} | Win%: {game.awayteamWinPercentage} </li>)}
+          {this.state.games.map(game => <li key={game.home + game.away} className="gameListItem">{game.home} | <span className={(game.prediction > 10 && game.hometeamWinPercentage > 55 && game.homeOdds > 1.8 || game.prediction > 15 && game.hometeamWinPercentage > 60 && game.homeOdds > 1.5) ? "winner" : null}>Odds: {game.homeOdds}</span> | Win%: {game.hometeamWinPercentage} vs {game.away} | <span className={(game.prediction < -10 && game.awayteamWinPercentage > 55 && game.homeOdds > 2 || game.prediction < -15 && game.awayteamWinPercentage > 60 && game.awayOdds > 1.8) ? "winner" : null}>Odds: {game.awayOdds}</span> | Win%: {game.awayteamWinPercentage} </li>)}
         </ul>
       </div>
     );
