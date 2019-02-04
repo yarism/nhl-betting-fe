@@ -8,20 +8,6 @@ class App extends Component {
     this.state ={ isLoading: true}
   }
 
-  /*componentDidMount() {
-    return fetch('https://nhl-betting.herokuapp.com/')
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (response) {
-        console.log(response);
-        this.setState({ games: response });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }*/
-
   componentDidMount(){
     return fetch('https://nhl-betting.herokuapp.com/')
       .then((response) => response.json())
